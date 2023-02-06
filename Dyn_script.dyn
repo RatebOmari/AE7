@@ -1,0 +1,192 @@
+{
+  "Uuid": "06e57ea3-ce6b-4342-9b9f-f370aca57321",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "Dyn_script",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 612,
+      "SelectedString": "OST_StructuralFraming",
+      "NodeType": "ExtensionNode",
+      "Id": "1111f0ab19d74963806ed9f556cce9f0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "156e2b683fbb47c385a2d17f9585619f",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "edc383170d5f4bc18ea76762d85edb13",
+      "Inputs": [
+        {
+          "Id": "f5589ba0a90540609da95ad3b3ca444c",
+          "Name": "Category",
+          "Description": "The Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fd771558468c4d66816a94036738ac7e",
+          "Name": "Elements",
+          "Description": "An element class.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified category from the model."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Delete@Revit.Elements.Element",
+      "Id": "7af8860074804a0e9bcab9b160cb6bac",
+      "Inputs": [
+        {
+          "Id": "2e563e9dad314a76a2eee94431fb1614",
+          "Name": "element",
+          "Description": "The element to delete.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "267fa9b21a7f40519e171c0137be8fad",
+          "Name": "int[]",
+          "Description": "The list of element id's deleted, including any dependent elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Delete the element and any elements that are totally dependent upon the element.\n\nElement.Delete (element: Element): int[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "156e2b683fbb47c385a2d17f9585619f",
+      "End": "f5589ba0a90540609da95ad3b3ca444c",
+      "Id": "f85dc3512032470383f295389af7338d",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "fd771558468c4d66816a94036738ac7e",
+      "End": "2e563e9dad314a76a2eee94431fb1614",
+      "Id": "adea2a13618642a98d707137bd357fb9",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.1.2727",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "1111f0ab19d74963806ed9f556cce9f0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Categories",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 200.00000000000011,
+        "Y": 331.2
+      },
+      {
+        "Id": "edc383170d5f4bc18ea76762d85edb13",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "All Elements of Category",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 505.6,
+        "Y": 333.60000000000008
+      },
+      {
+        "Id": "7af8860074804a0e9bcab9b160cb6bac",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Name": "Element.Delete",
+        "ShowGeometry": true,
+        "Excluded": false,
+        "X": 841.60000000000014,
+        "Y": 325.59999999999997
+      }
+    ],
+    "Annotations": [],
+    "X": -17.600000000000136,
+    "Y": 0.80000000000001137,
+    "Zoom": 1.0
+  }
+}
